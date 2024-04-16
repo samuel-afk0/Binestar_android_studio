@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="red">#cc9999</color>
+
+    <color name="primario">#E57373</color>
+    <color name="segundo">#81C784</color>
+    <color name="mi_color">#C1BCBE</color>
+    <color name="azulClaro">#EBF1FD</color>
+    <color name="azulOscuro">#11366A</color>
+    <color name="verde">#16a286</color>
+    <color name="sandy">#ffab5c</color>
+
+    <color name="rojo">#ff4d6d</color>
+    <color name="gris">#880E4F</color>
+
+</resources>

@@ -1,0 +1,18 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home"
+        android:icon="@drawable/home"
+        android:title="Inicio" />
+    <item
+        android:id="@+id/progresos"
+        android:icon="@drawable/grafica"
+        android:title="Progresos" />
+    <item
+        android:id="@+id/otros"
+        android:icon="@drawable/gym"
+        android:title="Otros" />
+    <item
+        android:id="@+id/perfil"
+        android:icon="@drawable/calenario"
+        android:title="Perfil" />
+</menu>
