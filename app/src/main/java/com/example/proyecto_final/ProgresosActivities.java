@@ -108,6 +108,7 @@ public class ProgresosActivities extends AppCompatActivity {
 
 // Animaciones
         lineChart.animateX(1000);
+        configurarGraficoLineas2();
     }
 
     private void configurarGraficoBarras() {
@@ -165,6 +166,57 @@ public class ProgresosActivities extends AppCompatActivity {
         valores.add(110f); // Domingo
         return valores;
     }
+    private void configurarGraficoLineas2() {
+        // Obtener la referencia del gráfico de líneas lineChart2
+        LineChart lineChart2 = findViewById(R.id.lineChart2);
+
+        // Datos de ejemplo para el gráfico de líneas
+        List<Entry> entries2 = new ArrayList<>();
+        entries2.add(new Entry(1, 1500)); // Enero
+        entries2.add(new Entry(2, 800));  // Febrero
+        entries2.add(new Entry(3, 1900)); // Marzo
+        entries2.add(new Entry(4, 50));   // Abril
+        entries2.add(new Entry(5, 300));  // Mayo
+        entries2.add(new Entry(6, 2100)); // Junio
+
+        // Configurar el conjunto de datos para el gráfico de líneas
+        LineDataSet dataSet2 = new LineDataSet(entries2, "Calorías por mes");
+        dataSet2.setColor(Color.RED);
+        LineData lineData2 = new LineData(dataSet2);
+        lineChart2.setData(lineData2);
+
+        // Formatear el eje X para mostrar los meses
+        XAxis xAxis2 = lineChart2.getXAxis();
+        xAxis2.setValueFormatter(new ValueFormatter() {
+            final String[] meses = {"Ene", "Feb", "Mar", "Abr", "May", "Jun"};
+
+            @Override
+            public String getFormattedValue(float value) {
+                int index = (int) value;
+                if (index >= 0 && index < meses.length) {
+                    return meses[index];
+                }
+                return "";
+            }
+        });
+
+        // Deshabilitar el eje Y derecho
+        YAxis yAxisRight2 = lineChart2.getAxisRight();
+        yAxisRight2.setEnabled(false);
+
+        // Configurar la descripción
+        Description description2 = new Description();
+        description2.setText("Meses");
+        lineChart2.setDescription(description2);
+
+        // Configurar la leyenda
+        Legend legend2 = lineChart2.getLegend();
+        legend2.setEnabled(true);
+
+        // Animar el gráfico
+        lineChart2.animateX(1000);
+    }
+
 
 
 
