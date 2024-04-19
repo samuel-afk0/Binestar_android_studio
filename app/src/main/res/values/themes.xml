@@ -4,7 +4,7 @@
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
         <item name="colorPrimary">@color/azulOscuro</item>
-        <item name="colorPrimaryVariant">@color/azulClaro</item>
+        <item name="colorPrimaryVariant">@color/codGray</item>
     </style>
 
     <style name="Theme.Proyecto_final" parent="Base.Theme.Proyecto_final" />

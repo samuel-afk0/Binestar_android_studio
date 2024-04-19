@@ -1,13 +1,23 @@
 package com.example.proyecto_final;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
+import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.components.Legend;
+import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.data.PieDataSet;
+import com.github.mikephil.charting.data.PieEntry;
+import java.util.ArrayList;
+import java.util.List;
+import com.airbnb.lottie.LottieAnimationView;
+import android.os.Bundle;
+import androidx.appcompat.app.AppCompatActivity;
+import com.airbnb.lottie.LottieAnimationView;
 public class HomeActivity extends AppCompatActivity {
+    PieChart GraficoAnillo,GraficoAnilloKilometros;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,11 +33,82 @@ public class HomeActivity extends AppCompatActivity {
                             startActivity(new Intent(HomeActivity.this, ProgresosActivities.class));
                             return true;
                         } else {
-                            // Manejar cualquier otro caso aquí, como mostrar un mensaje de error o realizar otra acción
-                            return false; // Opcionalmente, puedes retornar false si no manejas el caso
+
+                            return false;
                         }
                     }
 
                 });
+        GraficoAnillo = findViewById(R.id.GraficoAnillo);
+        configurarGraficoAnillo();
+        GraficoAnilloKilometros=findViewById(R.id.GraficoAnilloKilometros);
+        configurarGraficoAnilloKilometros();
+
     }
+    private void configurarGraficoAnillo() {
+        // Crear datos para el gráfico de dona
+        List<PieEntry> datos = new ArrayList<>();
+        datos.add(new PieEntry(75f, "")); // Progreso (porcentaje)
+        datos.add(new PieEntry(25f, "")); // Espacio en blanco para el resto del círculo
+
+        // Configurar colores
+        List<Integer> colores = new ArrayList<>();
+        colores.add(getResources().getColor(R.color.colorAccent)); // Color del progreso
+        colores.add(getResources().getColor(android.R.color.transparent)); // Color transparente para el espacio en blanco
+
+        // Crear conjunto de datos
+        PieDataSet dataSet = new PieDataSet(datos, "");
+        dataSet.setColors(colores);
+        dataSet.setDrawValues(false); // No mostrar valores en las partes del círculo
+
+        // Configurar leyenda
+        Legend leyenda = GraficoAnillo.getLegend();
+        leyenda.setEnabled(false); // Deshabilitar la leyenda
+
+        // Crear objeto PieData
+        PieData data = new PieData(dataSet);
+
+        // Configurar animación
+        GraficoAnillo.animateY(2000);
+
+        // Establecer datos en el gráfico
+        GraficoAnillo.setData(data);
+
+        // Actualizar el gráfico
+        GraficoAnillo.invalidate();
+    }
+    private void configurarGraficoAnilloKilometros() {
+        // Crear datos para el gráfico de dona
+        List<PieEntry> datosKilometros = new ArrayList<>();
+        datosKilometros.add(new PieEntry(20f, "")); // Progreso (porcentaje)
+        datosKilometros.add(new PieEntry(80f, "")); // Espacio en blanco para el resto del círculo
+
+        // Configurar colores
+        List<Integer> coloreskilometros = new ArrayList<>();
+        coloreskilometros.add(getResources().getColor(R.color.bondy)); // Color del progreso
+        coloreskilometros.add(getResources().getColor(android.R.color.transparent)); // Color transparente para el espacio en blanco
+
+        // Crear conjunto de datos
+        PieDataSet dataSet = new PieDataSet(datosKilometros, "");
+        dataSet.setColors(coloreskilometros);
+        dataSet.setDrawValues(false); // No mostrar valores en las partes del círculo
+
+        // Configurar leyenda
+        Legend leyenda = GraficoAnillo.getLegend();
+        leyenda.setEnabled(false); // Deshabilitar la leyenda
+
+        // Crear objeto PieData
+        PieData data = new PieData(dataSet);
+
+        // Configurar animación
+        GraficoAnilloKilometros.animateY(2000);
+
+        // Establecer datos en el gráfico
+        GraficoAnilloKilometros.setData(data);
+
+        // Actualizar el gráfico
+        GraficoAnilloKilometros.invalidate();
+    }
+
 }
+

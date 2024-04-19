@@ -14,5 +14,12 @@
 
     <color name="rojo">#ff4d6d</color>
     <color name="gris">#880E4F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="nobel">#b3b3b3</color>
+    <color name="concreto">#d9d9d9</color>
+    <color name="codGray">#1c1c1c</color>
+    <color name="downy">#66cccc</color>
+    <color name="bondy">#00b2b3</color>
+
 
 </resources>
