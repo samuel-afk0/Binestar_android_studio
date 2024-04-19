@@ -257,6 +257,59 @@
 
   </ScrollView>
 
+  <com.github.clans.fab.FloatingActionMenu
+      android:id="@+id/menu_float"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="bottom|end"
+      android:layout_margin="16dp"
+      app:menu_colorNormal="#11366A"
+      app:menu_colorPressed="@color/red"
+      app:menu_colorRipple="@color/azulOscuro"
+      app:menu_fab_label="Cerrar"
+      app:layout_constraintBottom_toBottomOf="@+id/scrollView2"
+      app:layout_constraintEnd_toEndOf="parent">
+
+    <com.github.clans.fab.FloatingActionButton
+        android:id="@+id/MenuFlota"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/running"
+        app:fab_colorNormal="#11366A"
+        app:fab_label="Agregar objetivo nuevo"
+        app:tooltipText="Este es el botón principal"
+        android:background="@color/azulOscuro"/>
+
+    <com.github.clans.fab.FloatingActionButton
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/cokie"
+        app:fab_colorNormal="#11366A"
+        app:fab_label="Agregar datos de entrenamiento"
+        android:visibility="invisible"
+        />
+
+    <com.github.clans.fab.FloatingActionButton
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/addd"
+        app:fab_colorNormal="#11366A"
+        android:tint="@color/white"
+        app:fab_label="Agregar datos de ejercios de hoy"
+        android:visibility="invisible" />
+
+    <com.github.clans.fab.FloatingActionButton
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ejercicioo"
+        app:fab_colorNormal="#11366A"
+        app:fab_label="Agregar datos de pasos"
+        android:visibility="invisible" />
+  </com.github.clans.fab.FloatingActionMenu>
+
   <com.google.android.material.bottomappbar.BottomAppBar
       android:id="@+id/bottombar"
       android:layout_width="0dp"
@@ -269,9 +322,12 @@
       app:fabCradleVerticalOffset="10dp"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.48"
+      app:layout_constraintHorizontal_bias="1.0"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/scrollView2">
+
+
+
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"

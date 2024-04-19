@@ -15,10 +15,26 @@ import java.util.List;
 import com.airbnb.lottie.LottieAnimationView;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.motion.widget.MotionLayout;
+
 import com.airbnb.lottie.LottieAnimationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import androidx.appcompat.app.AppCompatActivity;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import android.graphics.Color;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
+import androidx.core.content.ContextCompat;
 public class HomeActivity extends AppCompatActivity {
     PieChart GraficoAnillo,GraficoAnilloKilometros;
+    private com.github.clans.fab.FloatingActionButton button1, button2, button3;
+    private com.github.clans.fab.FloatingActionButton menuFlota;
 
+    private boolean areButtonsVisible = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +59,41 @@ public class HomeActivity extends AppCompatActivity {
         configurarGraficoAnillo();
         GraficoAnilloKilometros=findViewById(R.id.GraficoAnilloKilometros);
         configurarGraficoAnilloKilometros();
+
+        ///menu flotannte
+        // Referencias a los botones en el layout
+        menuFlota = findViewById(R.id.MenuFlota);
+        button1 = findViewById(R.id.button1);
+        button2 = findViewById(R.id.button2);
+        button3 = findViewById(R.id.button3);
+
+        // Configuración del OnClickListener para el botón flotante principal
+        menuFlota.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Cambiar la visibilidad de los botones adicionales
+                if (areButtonsVisible) {
+                    button1.setVisibility(View.INVISIBLE);
+                    button2.setVisibility(View.INVISIBLE);
+                    button3.setVisibility(View.INVISIBLE);
+                } else {
+                    button1.setVisibility(View.VISIBLE);
+                    button2.setVisibility(View.VISIBLE);
+                    button3.setVisibility(View.VISIBLE);
+                }
+                // Cambiar el estado de visibilidad de los botones
+                areButtonsVisible = !areButtonsVisible;
+            }
+        });
+
+
+
+
+
+
+
+
+
 
     }
     private void configurarGraficoAnillo() {
