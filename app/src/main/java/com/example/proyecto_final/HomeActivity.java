@@ -31,6 +31,7 @@ import android.graphics.Color;
 import androidx.core.content.ContextCompat;
 public class HomeActivity extends AppCompatActivity {
     PieChart GraficoAnillo,GraficoAnilloKilometros;
+    Button MenuFlota;
     private com.github.clans.fab.FloatingActionButton button1, button2, button3;
     private com.github.clans.fab.FloatingActionButton menuFlota;
 
@@ -83,6 +84,16 @@ public class HomeActivity extends AppCompatActivity {
                 }
                 // Cambiar el estado de visibilidad de los botones
                 areButtonsVisible = !areButtonsVisible;
+            }
+        });
+        menuFlota=findViewById(R.id.MenuFlota);
+        menuFlota.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this, FormularioMetas.class);
+
+                startActivity(intent);
+
             }
         });
 
