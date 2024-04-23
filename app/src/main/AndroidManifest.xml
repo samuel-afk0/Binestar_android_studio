@@ -13,6 +13,12 @@
         android:theme="@style/Theme.Proyecto_final"
         tools:targetApi="31">
         <activity
+            android:name=".RegistroEntrenamiento"
+            android:exported="false" />
+        <activity
+            android:name=".Registro_ActivadFisica"
+            android:exported="false" />
+        <activity
             android:name=".FormularioMetas"
             android:exported="false" />
         <activity
