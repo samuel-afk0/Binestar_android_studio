@@ -195,6 +195,7 @@
       </androidx.cardview.widget.CardView>
 
       <androidx.cardview.widget.CardView
+          android:id="@+id/cardview3"
           android:layout_width="410dp"
           android:layout_height="232dp"
           android:layout_marginStart="20dp"
@@ -251,8 +252,6 @@
 
 
       </androidx.cardview.widget.CardView>
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
   </ScrollView>

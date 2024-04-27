@@ -96,16 +96,6 @@ public class HomeActivity extends AppCompatActivity {
 
             }
         });
-
-
-
-
-
-
-
-
-
-
     }
     private void configurarGraficoAnillo() {
         // Crear datos para el gráfico de dona
