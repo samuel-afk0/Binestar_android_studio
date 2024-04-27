@@ -12,7 +12,7 @@
         android:icon="@drawable/gym"
         android:title="Otros" />
     <item
-        android:id="@+id/perfil"
+        android:id="@+id/calendario"
         android:icon="@drawable/calenario"
         android:title="Perfil" />
 </menu>

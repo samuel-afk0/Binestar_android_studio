@@ -13,6 +13,12 @@
         android:theme="@style/Theme.Proyecto_final"
         tools:targetApi="31">
         <activity
+            android:name=".AddMedicinaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CalendarioActivity"
+            android:exported="false" />
+        <activity
             android:name=".RegistroEntrenamiento"
             android:exported="false" />
         <activity
