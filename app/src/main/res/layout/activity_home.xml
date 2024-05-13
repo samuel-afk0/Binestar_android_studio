@@ -270,6 +270,16 @@
       app:layout_constraintEnd_toEndOf="parent">
 
     <com.github.clans.fab.FloatingActionButton
+        android:id="@+id/BtnAgregarRecordatorio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/baseline_access_alarm_24"
+        app:fab_colorNormal="#11366A"
+        app:fab_label="Agregar recordatorio"
+        app:tooltipText="Este es el botón recordatorio"
+        android:background="#ffff"/>
+
+    <com.github.clans.fab.FloatingActionButton
         android:id="@+id/MenuFlota"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

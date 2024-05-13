@@ -14,5 +14,5 @@
     <item
         android:id="@+id/calendario"
         android:icon="@drawable/calenario"
-        android:title="Perfil" />
+        android:title="Calendario" />
 </menu>

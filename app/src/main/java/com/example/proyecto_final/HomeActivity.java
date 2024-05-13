@@ -32,8 +32,9 @@ import androidx.core.content.ContextCompat;
 public class HomeActivity extends AppCompatActivity {
     PieChart GraficoAnillo,GraficoAnilloKilometros;
     Button MenuFlota;
-    private com.github.clans.fab.FloatingActionButton button1, button2, button3;
+    private com.github.clans.fab.FloatingActionButton button1, button2, button3, BtnAgregarRecordatorio;
     private com.github.clans.fab.FloatingActionButton menuFlota;
+
 
     private boolean areButtonsVisible = false;
     @Override
@@ -67,6 +68,7 @@ public class HomeActivity extends AppCompatActivity {
         button1 = findViewById(R.id.button1);
         button2 = findViewById(R.id.button2);
         button3 = findViewById(R.id.button3);
+        BtnAgregarRecordatorio = findViewById(R.id.BtnAgregarRecordatorio);
 
         // Configuración del OnClickListener para el botón flotante principal
         menuFlota.setOnClickListener(new View.OnClickListener() {
@@ -77,10 +79,12 @@ public class HomeActivity extends AppCompatActivity {
                     button1.setVisibility(View.INVISIBLE);
                     button2.setVisibility(View.INVISIBLE);
                     button3.setVisibility(View.INVISIBLE);
+                    BtnAgregarRecordatorio = findViewById(R.id.BtnAgregarRecordatorio);
                 } else {
                     button1.setVisibility(View.VISIBLE);
                     button2.setVisibility(View.VISIBLE);
                     button3.setVisibility(View.VISIBLE);
+                    BtnAgregarRecordatorio = findViewById(R.id.BtnAgregarRecordatorio);
                 }
                 // Cambiar el estado de visibilidad de los botones
                 areButtonsVisible = !areButtonsVisible;
@@ -94,6 +98,15 @@ public class HomeActivity extends AppCompatActivity {
 
                 startActivity(intent);
 
+            }
+        });
+        //ABRIR ACTIVIDAD RECORDATORIO
+        BtnAgregarRecordatorio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomeActivity.this, RecordatorioActivity.class);
+
+                startActivity(intent);
             }
         });
     }

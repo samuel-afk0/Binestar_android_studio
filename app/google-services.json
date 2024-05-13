@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "891058149818",
+    "project_id": "projecto-final-app-bienestar",
+    "storage_bucket": "projecto-final-app-bienestar.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:891058149818:android:10b9c5ffec73640a892583",
+        "android_client_info": {
+          "package_name": "com.example.proyecto_final"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDa3nDdEi04rj4RLfSo6KR4ZX7GN0pq41U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -51,8 +51,8 @@ public class ProgresosActivities extends AppCompatActivity {
                             if (item.getItemId() == R.id.home) {
                                 startActivity(new Intent(ProgresosActivities.this, HomeActivity.class));
                                 return true;
-                            } else if (item.getItemId() == R.id.calendario) {
-                                startActivity(new Intent(ProgresosActivities.this, CalendarioActivity.class));
+                            } else if (item.getItemId() == R.id.calendario) {//YA SE PUEDE CAMBIAR LA CLASE
+                                startActivity(new Intent(ProgresosActivities.this, RecordatorioActivity.class));
                                 return true;
                             } else {
                                 return false;
