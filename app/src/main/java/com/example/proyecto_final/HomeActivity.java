@@ -50,7 +50,12 @@ public class HomeActivity extends AppCompatActivity {
                         if (item.getItemId() == R.id.progresos) {
                             startActivity(new Intent(HomeActivity.this, ProgresosActivities.class));
                             return true;
-                        } else {
+                        }
+                        if(item.getItemId()==R.id.calendario){
+                            startActivity(new Intent(HomeActivity.this, CalendarioAnualActivities.class ));
+                        return true;
+                        }
+                        else {
 
                             return false;
                         }
@@ -95,6 +100,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(HomeActivity.this, FormularioMetas.class);
+
 
                 startActivity(intent);
 
