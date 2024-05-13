@@ -17,18 +17,18 @@
         android:theme="@style/Theme.Proyecto_final"
         tools:targetApi="31">
         <activity
-<<<<<<< HEAD
             android:name=".RecordatorioActivity"
             android:exported="false" />
         <activity
             android:name=".AddRecordatorio"
-=======
+            android:exported="false" />
+        <activity
             android:name=".CalendarioAnualActivities"
             android:exported="false" />
         <activity
             android:name=".CalendarioActividadesAnual"
->>>>>>> 4e3e0e16e7076f0182f44c69ad36bccd211678d3
             android:exported="false" />
+
         <activity
             android:name=".RegistroEntrenamiento"
             android:exported="false" />
