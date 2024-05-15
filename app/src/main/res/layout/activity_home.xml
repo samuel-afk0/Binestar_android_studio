@@ -287,12 +287,12 @@
         android:layout_height="wrap_content"
         android:src="@drawable/running"
         app:fab_colorNormal="#11366A"
-        app:fab_label=" Este es "
-        app:tooltipText="Este es el botón principal"
+        app:fab_label="Registro de actividad fisica"
+        app:tooltipText="Este es el boton de registro de acctividad"
         android:background="@color/azulOscuro"/>
 
     <com.github.clans.fab.FloatingActionButton
-        android:id="@+id/button1"
+        android:id="@+id/BtnAgregarEntrenamiento"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/cokie"

@@ -34,7 +34,7 @@ public class HomeActivity extends AppCompatActivity {
 
     public  int metaPasos=0, progresoPasos=0;
     public TextView txtvPasos, txtvKilometros;
-    FloatingActionButton BtnAgregarRecordatorio,btnObjetivo;
+    FloatingActionButton BtnAgregarRecordatorio,btnObjetivo, BtnAgregarEntrenamiento;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +71,7 @@ public class HomeActivity extends AppCompatActivity {
 
         BtnAgregarRecordatorio=findViewById(R.id.BtnAgregarRecordatorio);
         btnObjetivo=findViewById(R.id.btnObjetivo);
+        BtnAgregarEntrenamiento = findViewById(R.id.BtnAgregarEntrenamiento);
 
         BtnAgregarRecordatorio.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,6 +89,15 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        BtnAgregarEntrenamiento.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomeActivity.this, RegistroEntrenamiento.class);
+
+                startActivity(intent);
+            }
+        });
+
 
 
         // Configurar gráficos

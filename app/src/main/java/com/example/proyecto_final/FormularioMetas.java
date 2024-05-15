@@ -18,13 +18,9 @@ public class FormularioMetas extends AppCompatActivity {
         spinner = findViewById(R.id.spinner);
         submitButton = findViewById(R.id.submit_button);
 
-        // Define los elementos del ComboBox
+
         String[] items = new String[]{"Perder peso,", "Aumentar la masa muscular", "Mejorar su condición física"};
-
-        // Crea un adaptador para el ComboBox
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
-
-        // Asigna el adaptador al ComboBox
         spinner.setAdapter(adapter);
 
 

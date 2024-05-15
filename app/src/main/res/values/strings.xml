@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Proyecto_final</string>
+    <string name="distancia_recorrida">Distancia recorrida:</string>
+    <string name="enviar">Enviar</string>
+    <string name="salir">Salir</string>
+    <string name="cancelar">Cancelar</string>
 </resources>
