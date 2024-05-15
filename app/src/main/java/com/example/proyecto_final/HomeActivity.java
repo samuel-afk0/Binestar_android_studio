@@ -92,7 +92,7 @@ public class HomeActivity extends AppCompatActivity {
         btnAgregarObjeivo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(HomeActivity.this, RegistroEntrenamiento.class);
+                Intent intent = new Intent(HomeActivity.this, FormularioMetas.class);
 
                 startActivity(intent);
             }
@@ -101,7 +101,7 @@ public class HomeActivity extends AppCompatActivity {
         BtnAgregarEntrenamiento.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(HomeActivity.this, FormularioMetas.class);
+                Intent intent = new Intent(HomeActivity.this, RegistroEntrenamiento.class);
 
                 startActivity(intent);
             }
