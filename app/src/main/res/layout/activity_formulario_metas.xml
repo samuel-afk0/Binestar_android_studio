@@ -116,16 +116,30 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textV3" />
 
-    <Button
-        android:id="@+id/submit_button"
-        android:layout_width="192dp"
-        android:layout_height="63dp"
-        android:layout_below="@id/spinner"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="52dp"
-        android:text="Agregar objetivo"
+    <LinearLayout
+        android:id="@+id/llBotones2"
+        android:layout_width="343dp"
+        android:layout_height="97dp"
+        android:layout_marginBottom="96dp"
+        android:layout_marginTop="70dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+        app:layout_constraintTop_toBottomOf="@+id/spinner"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/btnEnviar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/enviar" />
+
+        <Button
+            android:id="@+id/btnCancelar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Cancelar" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

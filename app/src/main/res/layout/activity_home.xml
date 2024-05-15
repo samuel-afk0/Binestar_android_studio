@@ -302,13 +302,13 @@
         />
 
     <com.github.clans.fab.FloatingActionButton
-        android:id="@+id/button2"
+        android:id="@+id/btnAgregarObjetivos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/addd"
         app:fab_colorNormal="#11366A"
         android:tint="@color/white"
-        app:fab_label="Agregar datos de ejercios de hoy"
+        app:fab_label="Agregar objetivos"
         android:visibility="invisible" />
 
     <com.github.clans.fab.FloatingActionButton
