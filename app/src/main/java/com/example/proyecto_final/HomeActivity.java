@@ -34,7 +34,7 @@ public class HomeActivity extends AppCompatActivity {
 
     public  int metaPasos=0, progresoPasos=0;
     public TextView txtvPasos, txtvKilometros;
-    FloatingActionButton BtnAgregarRecordatorio,btnObjetivo, BtnAgregarEntrenamiento;
+    FloatingActionButton BtnAgregarRecordatorio,btnObjetivo, BtnAgregarEntrenamiento, btnAgregarObjeivo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,7 +72,7 @@ public class HomeActivity extends AppCompatActivity {
         BtnAgregarRecordatorio=findViewById(R.id.BtnAgregarRecordatorio);
         btnObjetivo=findViewById(R.id.btnObjetivo);
         BtnAgregarEntrenamiento = findViewById(R.id.BtnAgregarEntrenamiento);
-
+        btnAgregarObjeivo = findViewById(R.id.btnAgregarObjetivos);
         BtnAgregarRecordatorio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -89,6 +89,15 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        btnAgregarObjeivo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomeActivity.this, FormularioMetas.class);
+
+                startActivity(intent);
+            }
+        });
+
         BtnAgregarEntrenamiento.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
