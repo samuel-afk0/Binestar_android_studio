@@ -4,14 +4,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.DocumentReference;
 
 public class Registro_ActivadFisica extends AppCompatActivity {
     EditText edtdistancia;
+    Spinner SpOpcionescombo;
     Button btnEnviar, btnCancelar;
 
     @Override
@@ -22,6 +25,11 @@ public class Registro_ActivadFisica extends AppCompatActivity {
         edtdistancia = findViewById(R.id.edtdistancia);
         btnEnviar = findViewById(R.id.btnEnviar1);
         btnCancelar = findViewById(R.id.btnCancelar1);
+        SpOpcionescombo = findViewById(R.id.SpOpcionescombo);
+
+        String[] items = new String[]{"Kilometros recorridos", "Pasos realizados", ""};
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
+        SpOpcionescombo.setAdapter(adapter);
 
         btnEnviar.setOnClickListener(new View.OnClickListener() {
             @Override

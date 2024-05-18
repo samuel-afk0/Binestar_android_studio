@@ -21,7 +21,7 @@ public class FormularioMetas extends AppCompatActivity {
      btnEnviar = findViewById(R.id.btnEnviar);
         btnCancelar = findViewById(R.id.btnCancelar);
 
-        String[] items = new String[]{"Perder peso,", "Aumentar la masa muscular", "Mejorar su condición física"};
+        String[] items = new String[]{"Perder peso,", "Aumentar la masa muscular"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
         spinner.setAdapter(adapter);
 
