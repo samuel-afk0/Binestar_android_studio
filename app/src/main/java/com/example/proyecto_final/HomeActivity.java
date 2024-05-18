@@ -34,7 +34,7 @@ public class HomeActivity extends AppCompatActivity {
 
     public  int metaPasos=0, progresoPasos=0;
     public TextView txtvPasos, txtvKilometros;
-    FloatingActionButton BtnAgregarRecordatorio,btnObjetivo, BtnAgregarEntrenamiento, btnAgregarObjeivo;
+    FloatingActionButton BtnAgregarRecordatorio,btnObjetivo, BtnAgregarEntrenamiento, btnAgregarObjetivos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,7 +72,7 @@ public class HomeActivity extends AppCompatActivity {
         BtnAgregarRecordatorio=findViewById(R.id.BtnAgregarRecordatorio);
         btnObjetivo=findViewById(R.id.btnObjetivo);
         BtnAgregarEntrenamiento = findViewById(R.id.BtnAgregarEntrenamiento);
-        btnAgregarObjeivo = findViewById(R.id.btnAgregarObjetivos);
+        btnAgregarObjetivos = findViewById(R.id.btnAgregarObjetivos);
         BtnAgregarRecordatorio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -89,7 +89,7 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        btnAgregarObjeivo.setOnClickListener(new View.OnClickListener() {
+        btnAgregarObjetivos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(HomeActivity.this, FormularioMetas.class);
@@ -140,7 +140,7 @@ public class HomeActivity extends AppCompatActivity {
                     Log.d("TAG", "Meta Pasos: " + metaPasos);
                     Log.d("TAG", "Progreso Pasos: " + progresoPasos);
 
-                    // Actualizar gráficos
+                    // Actualizar graficos
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
@@ -172,8 +172,8 @@ public class HomeActivity extends AppCompatActivity {
         datos.add(new PieEntry(porcentajeRestantePasos, ""));
 
         List<Integer> colores = new ArrayList<>();
-        colores.add(getResources().getColor(R.color.colorAccent)); // Color del progreso
-        colores.add(getResources().getColor(android.R.color.transparent)); // Color transparente
+        colores.add(getResources().getColor(R.color.colorAccent));
+        colores.add(getResources().getColor(android.R.color.transparent));
 
         PieDataSet dataSet = new PieDataSet(datos, "");
         dataSet.setColors(colores);
@@ -197,8 +197,8 @@ public class HomeActivity extends AppCompatActivity {
             float porcentajeRestanteKilometros = 100f - porcentajeProgresoKilometros;
 
             List<PieEntry> datosKilometros = new ArrayList<>();
-            datosKilometros.add(new PieEntry(porcentajeProgresoKilometros, "Progreso"));
-            datosKilometros.add(new PieEntry(porcentajeRestanteKilometros, "Restante"));
+            datosKilometros.add(new PieEntry(porcentajeProgresoKilometros, ""));
+            datosKilometros.add(new PieEntry(porcentajeRestanteKilometros, ""));
 
             List<Integer> coloreskilometros = new ArrayList<>();
             coloreskilometros.add(getResources().getColor(R.color.bondy));
