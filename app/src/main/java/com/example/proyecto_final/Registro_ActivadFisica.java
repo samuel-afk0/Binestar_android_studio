@@ -27,7 +27,7 @@ public class Registro_ActivadFisica extends AppCompatActivity {
         btnCancelar = findViewById(R.id.btnCancelar1);
         SpOpcionescombo = findViewById(R.id.SpOpcionescombo);
 
-        String[] items = new String[]{"Kilometros recorridos", "Pasos realizados", ""};
+        String[] items = new String[]{"Kilometros recorridos", "Pasos realizados"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
         SpOpcionescombo.setAdapter(adapter);
 
@@ -55,17 +55,40 @@ public class Registro_ActivadFisica extends AppCompatActivity {
             return;
         }
 
+        String seleccion = SpOpcionescombo.getSelectedItem().toString();
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         DocumentReference docRef = db.collection("progreso").document("BaBdwWCKVvzfNhCt7MLM");
 
-        docRef.update("progresokilometros", Double.parseDouble(distancia))
+        if (seleccion.equals("Kilometros recorridos")) {
+            actualizarKilometros(docRef, Double.parseDouble(distancia));
+        } else if (seleccion.equals("Pasos realizados")) {
+            actualizarPasos(docRef, Double.parseDouble(distancia));
+        }
+    }
+
+    private void actualizarKilometros(DocumentReference docRef, double distancia) {
+        docRef.update("progresokilometros", distancia)
                 .addOnSuccessListener(aVoid -> {
-                    Toast.makeText(Registro_ActivadFisica.this, "Datos actualizados con éxito", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Registro_ActivadFisica.this, "Datos de kilómetros actualizados con éxito", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(Registro_ActivadFisica.this, HomeActivity.class);
                     startActivity(intent);
                 })
                 .addOnFailureListener(e -> {
-                    Toast.makeText(Registro_ActivadFisica.this, "Error al actualizar los datos", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Registro_ActivadFisica.this, "Error al actualizar los datos de kilómetros", Toast.LENGTH_SHORT).show();
+                });
+    }
+
+    private void actualizarPasos(DocumentReference docRef, double pasos) {
+        int pasosRedondeados = (int) Math.round(pasos);
+
+        docRef.update("progresopasos", pasosRedondeados)
+                .addOnSuccessListener(aVoid -> {
+                    Toast.makeText(Registro_ActivadFisica.this, "Datos de pasos actualizados con éxito", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(Registro_ActivadFisica.this, HomeActivity.class);
+                    startActivity(intent);
+                })
+                .addOnFailureListener(e -> {
+                    Toast.makeText(Registro_ActivadFisica.this, "Error al actualizar los datos de pasos", Toast.LENGTH_SHORT).show();
                 });
     }
 }
