@@ -102,7 +102,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/prueba"
             android:layout_width="183dp"
             android:layout_height="43dp"
             android:layout_marginStart="16dp"
@@ -181,6 +181,7 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/txtvPasos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20sp"
@@ -238,6 +239,7 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/txtvKilometros"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20sp"
@@ -281,17 +283,17 @@
         android:background="#ffff"/>
 
     <com.github.clans.fab.FloatingActionButton
-        android:id="@+id/MenuFlota"
+        android:id="@+id/btnObjetivo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/running"
         app:fab_colorNormal="#11366A"
-        app:fab_label="Agregar objetivo nuevo"
-        app:tooltipText="Este es el botón principal"
+        app:fab_label="Registro de actividad fisica"
+        app:tooltipText="Este es el boton de registro de acctividad"
         android:background="@color/azulOscuro"/>
 
     <com.github.clans.fab.FloatingActionButton
-        android:id="@+id/button1"
+        android:id="@+id/BtnAgregarEntrenamiento"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/cokie"
@@ -301,13 +303,13 @@
         />
 
     <com.github.clans.fab.FloatingActionButton
-        android:id="@+id/button2"
+        android:id="@+id/btnAgregarObjetivos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/addd"
         app:fab_colorNormal="#11366A"
         android:tint="@color/white"
-        app:fab_label="Agregar datos de ejercios de hoy"
+        app:fab_label="Agregar objetivos"
         android:visibility="invisible" />
 
     <com.github.clans.fab.FloatingActionButton
