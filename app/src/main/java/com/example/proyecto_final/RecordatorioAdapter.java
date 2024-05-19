@@ -1,7 +1,12 @@
 package com.example.proyecto_final;
 
+import static androidx.core.content.ContextCompat.startActivity;
+
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.text.Layout;
 import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -62,7 +67,7 @@ public class RecordatorioAdapter extends RecyclerView.Adapter<RecordatorioAdapte
 
     class RecordatorioViewHolder extends RecyclerView.ViewHolder {
         TextView txtRecordatorio, txtFecha, txtHora;
-        ImageView btnEditar, btnBorrar;
+        ImageView btnEditar, btnBorrar, btnClose;
         private String stringDateSelected;
 
 
@@ -73,6 +78,7 @@ public class RecordatorioAdapter extends RecyclerView.Adapter<RecordatorioAdapte
             txtHora = itemView.findViewById(R.id.txtHora);
             btnEditar = itemView.findViewById(R.id.btnEditar);
             btnBorrar = itemView.findViewById(R.id.btnBorrar);
+            btnClose = itemView.findViewById(R.id.btnClose);
 
 //BORRAR DATOS
             btnBorrar.setOnClickListener(new View.OnClickListener() {
@@ -97,13 +103,14 @@ public class RecordatorioAdapter extends RecyclerView.Adapter<RecordatorioAdapte
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()) {
+                                        Toast.makeText(v.getContext(), "Recordatorio eliminado", Toast.LENGTH_SHORT).show();
                                         // Si la eliminación fue exitosa, actualiza el RecyclerView
                                         int index = recordatorios.indexOf(recordatorio);
                                         if (index != -1) {
                                             recordatorios.remove(index);
                                             notifyItemRemoved(index);
                                             notifyItemRangeChanged(index, recordatorios.size());
-                                            Toast.makeText(context, "Recordatorio eliminado", Toast.LENGTH_SHORT).show();
+                                            //Toast.makeText(v.getContext(), "Recordatorio eliminado", Toast.LENGTH_SHORT).show();
                                         }
                                     } else {
                                         // Si hubo un error, muestra un mensaje
@@ -164,43 +171,70 @@ public class RecordatorioAdapter extends RecyclerView.Adapter<RecordatorioAdapte
                     // Encuentra el botón "Guardar" en el layout del diálogo
                     ImageView btndlgEditarGuardar = dialog.findViewById(R.id.btndlgEditarGuardar);
 
-                    // Establece el OnClickListener para el botón "Guardar"
                     btndlgEditarGuardar.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             // Obtén los datos actualizados de los campos de entrada
                             String mensajeActualizado = edtdlgEditarMensaje.getText().toString();
-
-                            // Convierte la fecha del CalendarView a "dd-MM-yyyy"
-                            //String fechaActualizada = sdf.format(new Date(dlgEditarcalendarView.getDate()));
-
-
                             String fechaActualizada = stringDateSelected;
                             String horaActualizada = dlgEditartimePicker.getHour() + ":" + dlgEditartimePicker.getMinute();
 
-                            // Actualiza los datos en Firebase
-                            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Calendar");
-                            databaseReference.child(recordatorio.getId()).child("mensaje").setValue(mensajeActualizado);
-                            databaseReference.child(recordatorio.getId()).child("fecha").setValue(fechaActualizada);
-                            databaseReference.child(recordatorio.getId()).child("hora").setValue(horaActualizada);
+                            // Verifica si los datos están vacíos o son null
+                            if(mensajeActualizado == null || mensajeActualizado.isEmpty() ||
+                                    fechaActualizada == null || fechaActualizada.isEmpty() ||
+                                    horaActualizada == null || horaActualizada.isEmpty()) {
+                                Toast.makeText(context, "Por favor, completa todos los campos antes de guardar.", Toast.LENGTH_SHORT).show();
+                            } else {
+                                // Actualiza los datos en Firebase
+                                DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Calendar");
+                                databaseReference.child(recordatorio.getId()).child("mensaje").setValue(mensajeActualizado);
+                                databaseReference.child(recordatorio.getId()).child("fecha").setValue(fechaActualizada);
+                                databaseReference.child(recordatorio.getId()).child("hora").setValue(horaActualizada);
 
-                            // Actualiza los datos en la lista recordatorios y notifica al adaptador del cambio
-                            recordatorio.setMensajeActualizado(mensajeActualizado);
-                            // Aquí debes actualizar la fecha y la hora en el objeto recordatorio
-                            notifyItemChanged(position);
+                                // Actualiza los datos en la lista recordatorios y notifica al adaptador del cambio
+                                recordatorio.setMensajeActualizado(mensajeActualizado);
+                                // Aquí debes actualizar la fecha y la hora en el objeto recordatorio
+                                notifyItemChanged(position);
 
-                            // Muestra un Toast confirmando que se editó con éxito
-                            Toast.makeText(context, "Recordatorio editado con éxito", Toast.LENGTH_SHORT).show();
+                                // Muestra un Toast confirmando que se editó con éxito
+                                Toast.makeText(context, "Recordatorio editado con éxito", Toast.LENGTH_SHORT).show();
 
+                                // Cierra el diálogo
+                                dialog.dismiss();
+                            }
+                        }
+                    });
+
+
+                    // Muestra el diálogo
+                    dialog.show();
+
+
+                    // Crea un nuevo diálogo usando el contexto de la actividad
+                    //final Dialog dialog = new Dialog(context);
+
+                    // Inflar el layout para el diálogo
+                    //dialog.setContentView(R.layout.recordatorio_editar);
+
+                    // Encuentra el botón "Cerrar" en el layout del diálogo
+                    ImageView btnClose = dialog.findViewById(R.id.btnClose);
+
+                    // Establece el OnClickListener para el botón "Cerrar"
+                    btnClose.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
                             // Cierra el diálogo
                             dialog.dismiss();
                         }
                     });
 
-                    // Muestra el diálogo
-                    dialog.show();
                 }
             });
+
+
+
+
+
 
 
         }

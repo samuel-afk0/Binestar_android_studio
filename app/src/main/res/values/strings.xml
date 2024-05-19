@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Proyecto_final</string>
+    <string name="msg_token_fmt">Tu token es %1$s</string>
 </resources>

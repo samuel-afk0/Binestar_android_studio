@@ -6,25 +6,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RecordatorioActivity">
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="110dp"
+        android:alpha="0.1"
         android:scaleType="fitXY"
         android:src="@drawable/r1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:alpha="0.2"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/buttonAddRecordatorio"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="24dp"
-        android:src="@drawable/baseline_add_circle_24"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="15dp"
+        android:src="@drawable/button_selector"
+        android:background="@drawable/add_svgrepo_com"
         android:onClick="buttonAddRecordatorio"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -66,4 +68,33 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/buttonAddRecordatorio" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
+        android:background="#0095FF"
+        android:fontFamily="sans-serif-smallcaps"
+        android:text="Lista de recordatorios"
+        android:textColor="#ffff"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toStartOf="@+id/buttonAddRecordatorio"
+        app:layout_constraintHorizontal_bias="0.887"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/btnClose"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginBottom="55dp"
+        android:background="@drawable/left"
+        android:src="@drawable/button_selector"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.031"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
