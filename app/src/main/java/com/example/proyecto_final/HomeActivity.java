@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -28,12 +29,12 @@ import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
     PieChart GraficoAnillo, GraficoAnilloKilometros;
-
     public int metaKilometros = 0;
     public double progresoKilometros = 0;
 
     public  int metaPasos=0, progresoPasos=0;
     public TextView txtvPasos, txtvKilometros;
+    public ImageView btnservicioWeb;
     FloatingActionButton BtnAgregarRecordatorio,btnObjetivo, BtnAgregarEntrenamiento, btnAgregarObjetivos;
 
     @Override
@@ -68,7 +69,7 @@ public class HomeActivity extends AppCompatActivity {
 
 
         /////re direvion de los btonoes de la barra flotante del home activities
-
+        btnservicioWeb=findViewById(R.id.btnservicioWeb);
         BtnAgregarRecordatorio=findViewById(R.id.BtnAgregarRecordatorio);
         btnObjetivo=findViewById(R.id.btnObjetivo);
         BtnAgregarEntrenamiento = findViewById(R.id.BtnAgregarEntrenamiento);
@@ -220,5 +221,15 @@ public class HomeActivity extends AppCompatActivity {
         } else {
             Log.d("TAG", "Error: metaKilometros es igual a cero");
         }
+        //ABRIR PAGINA WEB DE FOROS
+        btnservicioWeb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomeActivity.this, ImagenesActivity.class);
+
+                startActivity(intent);
+            }
+        });
+
     }
 }

@@ -30,7 +30,7 @@ public class SplashScreen extends Activity {
         runnable = new Runnable() {
             @Override
             public void run() {
-                Intent intent  = new Intent(SplashScreen.this,MainActivity.class);
+                Intent intent = new Intent(SplashScreen.this, MainActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -39,27 +39,28 @@ public class SplashScreen extends Activity {
         handler.postDelayed(runnable, remainingTime);
         mediaPlayer.start();
     }
+
     //CICLOS DE VIDA APLICADOS EN AUDIO DE INTRO DE LA APP
     @Override
     protected void onPause() {
         super.onPause();
-        if (mediaPlayer.isPlaying()){
+        if (mediaPlayer.isPlaying()) {
             handler.removeCallbacks(runnable);
             pauseTime = System.currentTimeMillis();
             mediaPlayer.pause();
-            Toast.makeText(this, "PAUSE", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "PAUSE", Toast.LENGTH_SHORT).show();
         }
     }
 
     @Override
-    protected void onResume(){
+    protected void onResume() {
         super.onResume();
-        if (mediaPlayer != null && !mediaPlayer.isPlaying()){
+        if (mediaPlayer != null && !mediaPlayer.isPlaying()) {
             long timePaused = System.currentTimeMillis() - pauseTime;
             remainingTime -= timePaused;
             handler.postDelayed(runnable, remainingTime);
             mediaPlayer.start();
-            Toast.makeText(this, "RESUME", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "RESUME", Toast.LENGTH_SHORT).show();
         }
     }
 }
