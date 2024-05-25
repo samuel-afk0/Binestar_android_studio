@@ -12,7 +12,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 
 public class SplashScreen extends Activity {
-    private static final long SPLASH_TIMEOUT = 10000;
+    private static final long SPLASH_TIMEOUT = 9000;
     private MediaPlayer mediaPlayer;
     private Handler handler;
     private Runnable runnable;

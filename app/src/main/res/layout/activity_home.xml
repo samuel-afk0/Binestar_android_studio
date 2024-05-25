@@ -123,9 +123,9 @@
             android:layout_marginTop="3dp"
             android:layout_marginEnd="4dp"
             android:layout_marginBottom="120dp"
-            android:text="¿Buscas consejos de salud?"
+            android:text="¿Buscas foros de salud?"
             android:textColor="@color/azulOscuro"
-            android:textSize="17sp"
+            android:textSize="19sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.84"
@@ -155,11 +155,9 @@
           android:layout_width="410dp"
           android:layout_height="232dp"
           android:layout_marginStart="20dp"
-          android:layout_marginTop="40dp"
+          android:layout_marginTop="20dp"
           android:layout_marginEnd="20dp"
-
           app:cardBackgroundColor="@color/concreto"
-
           app:cardCornerRadius="20sp"
           app:layout_constraintEnd_toEndOf="parent"
           app:layout_constraintStart_toStartOf="parent"
@@ -170,10 +168,7 @@
             android:layout_width="200dp"
             android:layout_height="138dp"
             android:layout_marginLeft="190dp"
-            android:layout_marginTop="70dp"
-
-
-            />
+            android:layout_marginTop="70dp" />
 
         <TextView
             android:id="@+id/textView2"
@@ -203,12 +198,10 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20sp"
             android:layout_marginTop="110sp"
-
-            android:textStyle="bold"
-
             android:text="120 de 1000paso"
             android:textColor="@color/colorAccent"
-            android:textSize="15sp" />
+            android:textSize="15sp"
+            android:textStyle="bold" />
 
 
       </androidx.cardview.widget.CardView>
@@ -218,21 +211,20 @@
           android:layout_width="410dp"
           android:layout_height="232dp"
           android:layout_marginStart="20dp"
-          android:layout_marginTop="40dp"
+          android:layout_marginTop="20dp"
           android:layout_marginEnd="20dp"
+          app:cardCornerRadius="25dp"
           app:cardBackgroundColor="@color/concreto"
           app:layout_constraintEnd_toEndOf="parent"
           app:layout_constraintStart_toStartOf="parent"
           app:layout_constraintTop_toBottomOf="@+id/cardView2">
+
         <com.github.mikephil.charting.charts.PieChart
             android:id="@+id/GraficoAnilloKilometros"
             android:layout_width="200dp"
             android:layout_height="138dp"
             android:layout_marginLeft="190dp"
-            android:layout_marginTop="70dp"
-
-
-            />
+            android:layout_marginTop="70dp" />
 
         <TextView
 
@@ -261,17 +253,93 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20sp"
             android:layout_marginTop="110sp"
-
             android:text="1.2 kilometros de 5"
             android:textColor="@color/bondy"
             android:textSize="15sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
+      </androidx.cardview.widget.CardView>
 
+      <androidx.cardview.widget.CardView
+          android:id="@+id/cardview4"
+          android:layout_width="410dp"
+          android:layout_height="232dp"
+          android:layout_marginStart="20dp"
+          android:layout_marginTop="20dp"
+          android:layout_marginEnd="20dp"
+          app:cardCornerRadius="25dp"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/cardview3">
 
+        <FrameLayout
+            android:id="@+id/framelayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/background_gradient">
 
+          <!-- Agregar los elementos en nuevo CardView -->
 
+          <androidx.cardview.widget.CardView
+              android:layout_width="200dp"
+              android:layout_height="200dp"
+              android:layout_marginTop="15dp"
+              app:cardCornerRadius="200dp"
+              android:layout_marginStart="25dp">
+
+            <ImageView
+                android:id="@+id/btnSleep"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:background="@drawable/button_selector"
+                android:src="@drawable/r13">
+            </ImageView>
+          </androidx.cardview.widget.CardView>
+          <TextView
+              android:layout_width="170dp"
+              android:layout_height="25dp"
+              android:text="Consejos de Salud"
+              android:textStyle="bold"
+              android:textSize="20dp"
+              android:fontFamily="sans-serif-medium"
+              android:textColor="#5C00FF"
+              android:layout_marginTop="15dp"
+              android:layout_marginStart="220dp">
+          </TextView>
+          <TextView
+              android:layout_width="150dp"
+              android:layout_height="25dp"
+              android:text="¿Cuanto duermes?"
+              android:textSize="17dp"
+              android:fontFamily="sans-serif-medium"
+              android:textColor="#DA00FF"
+              android:layout_marginTop="60dp"
+              android:layout_marginStart="232dp">
+          </TextView>
+          <TextView
+              android:layout_width="150dp"
+              android:layout_height="25dp"
+              android:text="¿Conoces tu IMC?"
+              android:textSize="17dp"
+              android:fontFamily="sans-serif-medium"
+              android:textColor="#9422A8"
+              android:layout_marginTop="120dp"
+              android:layout_marginStart="240dp">
+          </TextView>
+          <TextView
+              android:layout_width="160dp"
+              android:layout_height="25dp"
+              android:text="¿Conoces tu dieta?"
+              android:textSize="17dp"
+              android:fontFamily="sans-serif-medium"
+              android:textColor="#551561"
+              android:layout_marginTop="180dp"
+              android:layout_marginStart="210dp">
+          </TextView>
+        </FrameLayout>
 
       </androidx.cardview.widget.CardView>
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
   </ScrollView>
@@ -282,61 +350,60 @@
       android:layout_height="wrap_content"
       android:layout_gravity="bottom|end"
       android:layout_margin="16dp"
+      app:layout_constraintBottom_toBottomOf="@+id/scrollView2"
+      app:layout_constraintEnd_toEndOf="parent"
       app:menu_colorNormal="#11366A"
       app:menu_colorPressed="@color/red"
       app:menu_colorRipple="@color/azulOscuro"
-      app:menu_fab_label="Cerrar"
-      app:layout_constraintBottom_toBottomOf="@+id/scrollView2"
-      app:layout_constraintEnd_toEndOf="parent">
+      app:menu_fab_label="Cerrar">
 
     <com.github.clans.fab.FloatingActionButton
         android:id="@+id/BtnAgregarRecordatorio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="#ffff"
         android:src="@drawable/baseline_access_alarm_24"
         app:fab_colorNormal="#11366A"
         app:fab_label="Agregar recordatorio"
-        app:tooltipText="Este es el botón recordatorio"
-        android:background="#ffff"/>
+        app:tooltipText="Este es el botón recordatorio" />
 
     <com.github.clans.fab.FloatingActionButton
         android:id="@+id/btnObjetivo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@color/azulOscuro"
         android:src="@drawable/running"
         app:fab_colorNormal="#11366A"
         app:fab_label="Registro de actividad fisica"
-        app:tooltipText="Este es el boton de registro de acctividad"
-        android:background="@color/azulOscuro"/>
+        app:tooltipText="Este es el boton de registro de acctividad" />
 
     <com.github.clans.fab.FloatingActionButton
         android:id="@+id/BtnAgregarEntrenamiento"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/cokie"
-        app:fab_colorNormal="#11366A"
-        app:fab_label="Agregar datos de entrenamiento"
         android:visibility="invisible"
-        />
+        app:fab_colorNormal="#11366A"
+        app:fab_label="Agregar datos de entrenamiento" />
 
     <com.github.clans.fab.FloatingActionButton
         android:id="@+id/btnAgregarObjetivos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/addd"
-        app:fab_colorNormal="#11366A"
         android:tint="@color/white"
-        app:fab_label="Agregar objetivos"
-        android:visibility="invisible" />
+        android:visibility="invisible"
+        app:fab_colorNormal="#11366A"
+        app:fab_label="Agregar objetivos" />
 
     <com.github.clans.fab.FloatingActionButton
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ejercicioo"
+        android:visibility="invisible"
         app:fab_colorNormal="#11366A"
-        app:fab_label="Agregar datos de pasos"
-        android:visibility="invisible" />
+        app:fab_label="Agregar datos de pasos" />
   </com.github.clans.fab.FloatingActionMenu>
 
   <com.google.android.material.bottomappbar.BottomAppBar
@@ -354,8 +421,6 @@
       app:layout_constraintHorizontal_bias="1.0"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/scrollView2">
-
-
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView

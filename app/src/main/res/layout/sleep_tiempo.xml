@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/main"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#8A2BE2"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:fontFamily="casual"
+            android:text="CALCULAR PERIODO DE SUEñO"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/left"
+            android:src="@drawable/button_selector"
+            android:text="Back"
+            android:textColor="#FFFFFF" />
+
+    </LinearLayout>
+
+
+
+
+   <androidx.constraintlayout.widget.ConstraintLayout
+       android:id="@+id/Cl"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       app:layout_constraintTop_toTopOf="@+id/appBarLayout"
+       android:layout_marginTop="50dp"
+       android:background="@drawable/background_gradient_sleep">
+
+
+    <TextView
+        android:id="@+id/tv_sleeping"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="@string/tiempo"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/fl_sleeping"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_sleeping">
+
+        <nl.joery.timerangepicker.TimeRangePicker
+            android:id="@+id/trp_sleeping"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:trp_endTime="07:30"
+            app:trp_sliderRangeGradientEnd="#6200EE"
+            app:trp_sliderRangeGradientMiddle="@android:color/holo_orange_dark"
+            app:trp_sliderRangeGradientStart="#3700B3"
+            app:trp_startTime="23:30"
+            app:trp_thumbIconEnd="@drawable/ic_alarm"
+            app:trp_thumbIconStart="@drawable/ic_moon" />
+
+        <LinearLayout
+            android:id="@+id/time_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/bedtime_layout"
+                android:layout_width="95dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center_vertical"
+                    android:contentDescription="sleep"
+                    android:src="@drawable/ic_moon"
+                    app:tint="#ffff" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/dormir"
+                        android:textAlignment="center"
+                        android:textColor="?android:textColorPrimary"
+                        android:textSize="14sp"
+                        android:textStyle="italic" />
+
+                    <TextView
+                        android:id="@+id/start_time"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:textColor="?android:textColorPrimary"
+                        android:textSize="20sp"
+                        tools:text="23:30" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/wake_layout"
+                android:layout_width="95dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center_vertical"
+                    android:contentDescription="wake"
+                    android:src="@drawable/ic_alarm"
+                    app:tint="#FFC107" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/despertar"
+                        android:textAlignment="center"
+                        android:textColor="?android:textColorPrimary"
+                        android:textSize="14sp"
+                        android:textStyle="italic" />
+
+                    <TextView
+                        android:id="@+id/end_time"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:textColor="?android:textColorPrimary"
+                        android:textSize="20sp"
+                        tools:text="7:30" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/duration_hour"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="?android:textColorPrimary"
+                android:textSize="32sp"
+                tools:text="08" />
+
+            <TextView
+                android:id="@+id/duration_hour_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_marginEnd="6dp"
+                android:text=":"
+                android:textColor="?android:textColorPrimary"
+                android:textSize="32sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/duration_minute"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="?android:textColorPrimary"
+                android:textSize="32sp"
+                tools:text="22" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/tv_sleeping_duration"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="@string/duracion"
+        android:textSize="20sp"
+        android:textColor="#FFFFFF"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fl_sleeping" />
+
+    <TextView
+        android:id="@+id/tv_method"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="@string/duraiones"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        android:textColor="@color/nobel"
+        android:fontFamily="sans-serif-medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_sleeping_duration" />
+
+    <TextView
+        android:id="@+id/tv_method_selected"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:textAlignment="center"
+        android:textColor="@color/nobel"
+        android:textSize="20sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_method" />
+
+       <androidx.appcompat.widget.AppCompatSeekBar
+           android:id="@+id/sb_method"
+           style="@style/Widget.AppCompat.SeekBar.Discrete"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:max="3"
+           android:progress="1"
+           android:progressBackgroundTint="#FFC107"
+           android:progressDrawable="@android:drawable/progress_horizontal"
+
+           android:progressTint="#E91E63"
+           app:layout_constraintTop_toBottomOf="@id/tv_method_selected" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="@string/moderado"
+        android:textColor="?colorSecondary"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@id/sb_method"
+        app:layout_constraintTop_toBottomOf="@id/sb_method" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="@string/extremo"
+        android:textColor="?colorSecondary"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@id/sb_method"
+        app:layout_constraintTop_toBottomOf="@id/sb_method" />
+
+       <androidx.cardview.widget.CardView
+           android:layout_width="180dp"
+           android:layout_height="100dp"
+           app:cardCornerRadius="100dp"
+           app:cardElevation="0dp"
+           app:layout_constraintBottom_toTopOf="@+id/tv_result"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toBottomOf="@+id/sb_method">
+           <ImageView
+               android:id="@+id/btnConsejo"
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:scaleType="center"
+               android:src="@drawable/nutritionplan" />
+
+       </androidx.cardview.widget.CardView>
+
+       <TextView
+           android:id="@+id/tv_result"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_marginBottom="8dp"
+           android:text="@string/periodo"
+           android:textAlignment="center"
+           android:textColor="@color/nobel"
+           android:textSize="18sp"
+           android:textStyle="bold"
+           app:layout_constraintBottom_toTopOf="@id/card_start"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintHorizontal_bias="0.0"
+           app:layout_constraintStart_toStartOf="parent" />
+
+       <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/card_end"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/inicia"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_breakfast_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="italic" />
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/card_start"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/card_start">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/termina"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_fast_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="italic" />
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="moderado"
+        android:textColor="@color/nobel"
+        app:layout_constraintEnd_toStartOf="@+id/textView5"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/sb_method" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="extremo"
+        android:textColor="@color/nobel"
+        app:layout_constraintEnd_toStartOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/sb_method" />
+
+
+
+   </androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

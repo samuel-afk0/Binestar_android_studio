@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.bumptech.glide.Glide;
 import com.github.clans.fab.FloatingActionButton;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Legend;
@@ -34,13 +35,16 @@ public class HomeActivity extends AppCompatActivity {
 
     public  int metaPasos=0, progresoPasos=0;
     public TextView txtvPasos, txtvKilometros;
-    public ImageView btnservicioWeb;
+    public ImageView btnservicioWeb, btnSleep;
     FloatingActionButton BtnAgregarRecordatorio,btnObjetivo, BtnAgregarEntrenamiento, btnAgregarObjetivos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        //Imagen gif consejos
+        ImageView gifImageView = findViewById(R.id.btnSleep);
+        Glide.with(this).load(R.drawable.r13).into(gifImageView);
 
         // Iniciar hilo para obtener datos de Firebase
         new Thread(new Runnable() {
@@ -70,6 +74,7 @@ public class HomeActivity extends AppCompatActivity {
 
         /////re direvion de los btonoes de la barra flotante del home activities
         btnservicioWeb=findViewById(R.id.btnservicioWeb);
+        btnSleep=findViewById(R.id.btnSleep);
         BtnAgregarRecordatorio=findViewById(R.id.BtnAgregarRecordatorio);
         btnObjetivo=findViewById(R.id.btnObjetivo);
         BtnAgregarEntrenamiento = findViewById(R.id.BtnAgregarEntrenamiento);
@@ -226,6 +231,15 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(HomeActivity.this, ImagenesActivity.class);
+
+                startActivity(intent);
+            }
+        });
+        //ABRIR PAGINA CONSEJOS
+        btnSleep.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomeActivity.this, SleepTiempoActivity.class);
 
                 startActivity(intent);
             }

@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Proyecto_final</string>
+    <string name="dormir">DORMIR</string>
+    <string name="despertar">DESPERTAR</string>
+    <string name="duracion">Tu Tiempo de Sueño Dura: %1$s Horas</string>
+    <string name="tiempo">Calcula Tu Tiempo de Sueño</string>
+    <string name="duraiones">Ayuno intermitente establece la duracion</string>
+    <string name="periodo">Periodo de Comida</string>
+    <string name="inicia">DESAYUNO</string>
+    <string name="termina">AYUNO</string>
+    <string name="extremo">🥵</string>
+    <string name="moderado">🤗</string>
 </resources>
