@@ -37,9 +37,6 @@
 
     </LinearLayout>
 
-
-
-
    <androidx.constraintlayout.widget.ConstraintLayout
        android:id="@+id/Cl"
        android:layout_width="match_parent"
@@ -444,8 +441,6 @@
         android:textColor="@color/nobel"
         app:layout_constraintEnd_toStartOf="@+id/textView4"
         app:layout_constraintTop_toBottomOf="@+id/sb_method" />
-
-
 
    </androidx.constraintlayout.widget.ConstraintLayout>
 </RelativeLayout>
