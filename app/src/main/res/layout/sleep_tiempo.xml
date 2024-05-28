@@ -288,21 +288,56 @@
 
        <androidx.cardview.widget.CardView
            android:layout_width="180dp"
-           android:layout_height="100dp"
+           android:layout_height="80dp"
            app:cardCornerRadius="100dp"
            app:cardElevation="0dp"
            app:layout_constraintBottom_toTopOf="@+id/tv_result"
            app:layout_constraintEnd_toEndOf="parent"
            app:layout_constraintStart_toStartOf="parent"
            app:layout_constraintTop_toBottomOf="@+id/sb_method">
-           <ImageView
-               android:id="@+id/btnConsejo"
+
+           <RelativeLayout
                android:layout_width="match_parent"
-               android:layout_height="match_parent"
-               android:scaleType="center"
-               android:src="@drawable/nutritionplan" />
+               android:layout_height="match_parent">
+
+               <TextView
+                   android:id="@+id/tvLeft"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_alignParentStart="true"
+                   android:layout_marginStart="25dp"
+                   android:fontFamily="sans-serif-medium"
+                   android:gravity="center_vertical"
+                   android:layout_marginTop="10dp"
+                   android:text="M\nA\nS"
+                   android:textColor="@android:color/black"
+                   android:textSize="16sp" />
+
+               <ImageView
+                   android:id="@+id/btnConsejo"
+                   android:layout_width="80dp"
+                   android:layout_height="80dp"
+                   android:layout_centerInParent="true"
+                   android:scaleType="center"
+                   android:src="@drawable/nutritionplan" />
+
+               <TextView
+                   android:id="@+id/tvRight"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_alignParentEnd="true"
+                   android:layout_marginEnd="25dp"
+                   android:fontFamily="sans-serif-medium"
+                   android:gravity="center_vertical"
+                   android:layout_marginTop="0dp"
+                   android:text="I\nN\nF\nO"
+                   android:textColor="@android:color/black"
+                   android:textSize="16sp" />
+
+           </RelativeLayout>
 
        </androidx.cardview.widget.CardView>
+
 
        <TextView
            android:id="@+id/tv_result"

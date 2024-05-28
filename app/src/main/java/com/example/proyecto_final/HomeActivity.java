@@ -32,10 +32,9 @@ public class HomeActivity extends AppCompatActivity {
     PieChart GraficoAnillo, GraficoAnilloKilometros;
     public int metaKilometros = 0;
     public double progresoKilometros = 0;
-
     public  int metaPasos=0, progresoPasos=0;
     public TextView txtvPasos, txtvKilometros;
-    public ImageView btnservicioWeb, btnSleep;
+    public ImageView btnservicioWeb, btnSleep, btnChat;
     FloatingActionButton BtnAgregarRecordatorio,btnObjetivo, BtnAgregarEntrenamiento, btnAgregarObjetivos;
 
     @Override
@@ -45,6 +44,9 @@ public class HomeActivity extends AppCompatActivity {
         //Imagen gif consejos
         ImageView gifImageView = findViewById(R.id.btnSleep);
         Glide.with(this).load(R.drawable.r13).into(gifImageView);
+        //Imagen gif chat
+        ImageView gifImageChat = findViewById(R.id.btnChat);
+        Glide.with(this).load(R.drawable.chatapp).into(gifImageChat);
 
         // Iniciar hilo para obtener datos de Firebase
         new Thread(new Runnable() {
@@ -75,6 +77,7 @@ public class HomeActivity extends AppCompatActivity {
         /////re direvion de los btonoes de la barra flotante del home activities
         btnservicioWeb=findViewById(R.id.btnservicioWeb);
         btnSleep=findViewById(R.id.btnSleep);
+        btnChat=findViewById(R.id.btnChat);
         BtnAgregarRecordatorio=findViewById(R.id.BtnAgregarRecordatorio);
         btnObjetivo=findViewById(R.id.btnObjetivo);
         BtnAgregarEntrenamiento = findViewById(R.id.BtnAgregarEntrenamiento);
@@ -241,6 +244,14 @@ public class HomeActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(HomeActivity.this, SleepTiempoActivity.class);
 
+                startActivity(intent);
+            }
+        });
+        //ABRIR PAGINA DE CHAT
+        btnChat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomeActivity.this, ChatActivity.class);
                 startActivity(intent);
             }
         });
