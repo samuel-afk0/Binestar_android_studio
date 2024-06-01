@@ -3,6 +3,9 @@ plugins {
     id("com.google.gms.google-services")
 }
 
+apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
+
 android {
     namespace 'com.example.proyecto_final'
     compileSdk 34
@@ -53,11 +56,13 @@ dependencies {
     //FIREBASE
     //implementation 'com.google.firebase:firebase-database'
     //implementation("com.google.firebase:firebase-analytics")
+    implementation 'com.google.firebase:firebase-auth:22.0.0'
     implementation(platform("com.google.firebase:firebase-bom:33.0.0"))
     implementation 'com.google.firebase:firebase-database:21.0.0'
     implementation 'com.google.firebase:firebase-core:20.0.1'
     implementation 'com.google.firebase:firebase-firestore:25.0.0'
     implementation 'com.google.firebase:firebase-messaging:24.0.0'
+    implementation 'com.google.firebase:firebase-auth:22.0.0'
 
     implementation ("nl.joery.timerangepicker:timerangepicker:1.0.0")
     //implementation 'com.github.prolificinteractive:material-calendarview:1.4.3'
@@ -65,3 +70,5 @@ dependencies {
     //implementation 'com.squareup:android-times-square:1.7.0'
     implementation 'com.applandeo:material-calendar-view:1.9.2'
 }
+
+apply plugin: 'com.google.gms.google-services'

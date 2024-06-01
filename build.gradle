@@ -12,6 +12,9 @@ buildscript {
 
         // Add the Maven coordinates and latest version of the plugin
         classpath ("com.google.gms:google-services")
+        classpath ('com.android.tools.build:gradle:7.3.0')
+        classpath ('com.google.gms:google-services:4.3.14')
+
     }
 }
 

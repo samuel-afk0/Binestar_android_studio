@@ -75,6 +75,7 @@
 
                 />
             <EditText
+                android:id="@+id/edtCorreo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
@@ -88,6 +89,7 @@
 
                 />
             <EditText
+                android:id="@+id/edtContra"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
@@ -119,7 +121,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="10dp"/>
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/login"
+                android:id="@+id/btnlogin"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:text="Iniciar"
