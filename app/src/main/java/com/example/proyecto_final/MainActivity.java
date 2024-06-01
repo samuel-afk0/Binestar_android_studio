@@ -69,10 +69,10 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, HomeActivity.class);
             startActivity(intent);
             finish(); // Cierra la actividad actual para que el usuario no pueda volver a ella presionando el botón de retroceso
-            Toast.makeText(MainActivity.this, "Login successful.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this, "Inicio exitoso.", Toast.LENGTH_SHORT).show();
         } else {
             // Mostrar un mensaje de error
-            Toast.makeText(MainActivity.this, "Authentication failed. Please try again.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this, "LA autentificacion fallo, intentelo de nuevo.", Toast.LENGTH_SHORT).show();
         }
     }
 }
