@@ -1,4 +1,5 @@
 package com.example.proyecto_final;
+import java.util.Arrays;
 import java.util.List;
 
 import com.github.mikephil.charting.utils.ColorTemplate;
@@ -16,14 +17,25 @@ import com.github.mikephil.charting.data.LineDataSet;
 
 import com.github.mikephil.charting.components.XAxis;
 import android.content.Intent;
+import android.util.Log;
 import android.view.MenuItem;
 import androidx.annotation.NonNull;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+
 import java.util.ArrayList;
 import java.util.List;
 import android.graphics.Color;
@@ -60,6 +72,9 @@ public class ProgresosActivities extends AppCompatActivity {
                         }
                     }
                 });
+
+
+        obtenerDatosFirebase();
 
         barChart = findViewById(R.id.barChart);
         configurarGraficoBarras();
@@ -216,6 +231,37 @@ public class ProgresosActivities extends AppCompatActivity {
         // Animar el gráfico
         lineChart2.animateX(1000);
     }
+    private void obtenerDatosFirebase() {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        DocumentReference progresoRef = db.collection("progreso").document("BaBdwWCKVvzfNhCt7MLM");
+
+        progresoRef.collection("ejercicios").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+            @Override
+            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                List<Integer> pasosList = new ArrayList<>();
+                List<Double> caloriasList = new ArrayList<>();
+                List<Double> kilometrosList = new ArrayList<>();
+
+                for (QueryDocumentSnapshot document : queryDocumentSnapshots) {
+                    Double calorias = document.getDouble("calorias");
+                    Integer pasos = document.getLong("pasos").intValue();
+                    Double kilometros = document.getDouble("kilometros");
+                    pasosList.add(pasos);
+                    caloriasList.add(calorias);
+                    kilometrosList.add(kilometros);
+                }
+                Log.d("TAG", "Pasos: " + pasosList.toString());
+                Log.d("TAG", "Calorias: " + caloriasList.toString());
+                Log.d("TAG", "Kilometros: " + kilometrosList.toString());
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.e("TAG", "Error al obtener los documentos de la subcolección 'ejercicios'", e);
+            }
+        });
+    }
+
 
 
 

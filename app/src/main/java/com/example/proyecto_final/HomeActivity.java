@@ -41,22 +41,6 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        //Imagen gif consejos
-        ImageView gifImageView = findViewById(R.id.btnSleep);
-        Glide.with(this).load(R.drawable.r13).into(gifImageView);
-        //Imagen gif chat
-        ImageView gifImageChat = findViewById(R.id.btnChat);
-        Glide.with(this).load(R.drawable.chatapp).into(gifImageChat);
-        //Imagen gif consejos
-        ImageView gifImageCalendar = findViewById(R.id.btnCalendar);
-        Glide.with(this).load(R.drawable.calendargif).into(gifImageCalendar);
-        // Iniciar hilo para obtener datos de Firebase
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                obtenerDatosFirebase();
-            }
-        }).start();
 
         // Configurar BottomNavigationView
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
@@ -75,8 +59,18 @@ public class HomeActivity extends AppCompatActivity {
                     }
                 });
 
+        // Configurar gráficos
+        GraficoAnillo = findViewById(R.id.GraficoAnillo);
+        GraficoAnilloKilometros = findViewById(R.id.GraficoAnilloKilometros);
 
-        /////re direvion de los btonoes de la barra flotante del home activities
+        // Iniciar hilo para obtener datos de Firebase
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                obtenerDatosFirebase();
+            }
+        }).start();
+
         btnservicioWeb=findViewById(R.id.btnservicioWeb);
         btnSleep=findViewById(R.id.btnSleep);
         btnChat=findViewById(R.id.btnChat);
@@ -89,23 +83,22 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(HomeActivity.this, RecordatorioActivity.class);
-
                 startActivity(intent);
             }
         });
+
         btnObjetivo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(HomeActivity.this, Registro_ActivadFisica.class);
-
                 startActivity(intent);
             }
         });
+
         btnAgregarObjetivos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(HomeActivity.this, FormularioMetas.class);
-
                 startActivity(intent);
             }
         });
@@ -114,16 +107,43 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(HomeActivity.this, RegistroEntrenamiento.class);
-
                 startActivity(intent);
             }
         });
 
+        // Configurar acciones de los botones flotantes
+        btnservicioWeb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomeActivity.this, ImagenesActivity.class);
+                startActivity(intent);
+            }
+        });
 
+        btnSleep.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomeActivity.this, SleepTiempoActivity.class);
+                startActivity(intent);
+            }
+        });
 
-        // Configurar gráficos
-        GraficoAnillo = findViewById(R.id.GraficoAnillo);
-        GraficoAnilloKilometros = findViewById(R.id.GraficoAnilloKilometros);
+        btnChat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomeActivity.this, ChatActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btnCalendar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomeActivity.this, CalendarioActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     private void obtenerDatosFirebase() {
@@ -134,25 +154,11 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 if (documentSnapshot.exists()) {
-                    String fecha = documentSnapshot.getString("fecha");
-                    int metaKilogramos = documentSnapshot.getLong("metakilogramos").intValue();
-                    double progresoKilogramos = documentSnapshot.getDouble("progresokilogramos");
-
                     metaKilometros = documentSnapshot.getLong("metakilometros").intValue();
                     progresoKilometros = documentSnapshot.getDouble("progresokilometros");
+                    metaPasos = documentSnapshot.getLong("metapasos").intValue();
+                    progresoPasos = documentSnapshot.getLong("progresopasos").intValue();
 
-                     metaPasos = documentSnapshot.getLong("metapasos").intValue();
-                     progresoPasos = documentSnapshot.getLong("progresopasos").intValue();
-
-                    Log.d("TAG", "Fecha: " + fecha);
-                    Log.d("TAG", "Meta Kilogramos: " + metaKilogramos);
-                    Log.d("TAG", "Progreso Kilogramos: " + progresoKilogramos);
-                    Log.d("TAG", "Meta Kilometros: " + metaKilometros);
-                    Log.d("TAG", "Progreso Kilometros: " + progresoKilometros);
-                    Log.d("TAG", "Meta Pasos: " + metaPasos);
-                    Log.d("TAG", "Progreso Pasos: " + progresoPasos);
-
-                    // Actualizar graficos
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
@@ -171,12 +177,9 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
     }
-    ////////////////grafica para pasos
 
     private void configurarGraficoAnillo() {
-
         float pasosprogres = ((float) progresoPasos / metaPasos) * 100f;
-
         float porcentajeRestantePasos= 100f - pasosprogres;
 
         List<PieEntry> datos = new ArrayList<>();
@@ -232,40 +235,5 @@ public class HomeActivity extends AppCompatActivity {
         } else {
             Log.d("TAG", "Error: metaKilometros es igual a cero");
         }
-        //ABRIR PAGINA WEB DE FOROS
-        btnservicioWeb.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(HomeActivity.this, ImagenesActivity.class);
-
-                startActivity(intent);
-            }
-        });
-        //ABRIR PAGINA CONSEJOS
-        btnSleep.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(HomeActivity.this, SleepTiempoActivity.class);
-
-                startActivity(intent);
-            }
-        });
-        //ABRIR PAGINA DE CHAT
-        btnChat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(HomeActivity.this, ChatActivity.class);
-                startActivity(intent);
-            }
-        });
-        //ABRIR PAGINA DE CALENDARO
-        btnCalendar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(HomeActivity.this, CalendarioActivity.class);
-                startActivity(intent);
-            }
-        });
-
     }
 }
