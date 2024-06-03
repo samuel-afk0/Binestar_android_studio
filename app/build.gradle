@@ -69,6 +69,7 @@ dependencies {
     //implementation 'com.applandeo:material-calendar-view:1.9.0-rc03'
     //implementation 'com.squareup:android-times-square:1.7.0'
     implementation 'com.applandeo:material-calendar-view:1.9.2'
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
 }
 
 apply plugin: 'com.google.gms.google-services'
