@@ -29,11 +29,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
-    PieChart GraficoAnillo, GraficoAnilloKilometros;
+    PieChart GraficoAnillo, GraficoAnilloKilometros, GraficoAnillocalorias;
     public int metaKilometros = 0;
-    public double progresoKilometros = 0;
+    public double progresoKilometros = 0, metacalorias= 0, progresocalorias=0;
     public  int metaPasos=0, progresoPasos=0;
-    public TextView txtvPasos, txtvKilometros;
+    public TextView txtvPasos, txtvKilometros, txtvcalorias;
     public ImageView btnservicioWeb, btnSleep, btnChat, btnCalendar;
     FloatingActionButton BtnAgregarRecordatorio,btnObjetivo, BtnAgregarEntrenamiento, btnAgregarObjetivos;
 
@@ -62,6 +62,7 @@ public class HomeActivity extends AppCompatActivity {
         // Configurar gráficos
         GraficoAnillo = findViewById(R.id.GraficoAnillo);
         GraficoAnilloKilometros = findViewById(R.id.GraficoAnilloKilometros);
+        GraficoAnillocalorias = findViewById(R.id.GraficoAnillocalorias);
 
         // Iniciar hilo para obtener datos de Firebase
         new Thread(new Runnable() {
@@ -158,12 +159,15 @@ public class HomeActivity extends AppCompatActivity {
                     progresoKilometros = documentSnapshot.getDouble("progresokilometros");
                     metaPasos = documentSnapshot.getLong("metapasos").intValue();
                     progresoPasos = documentSnapshot.getLong("progresopasos").intValue();
+                    metacalorias = documentSnapshot.getLong("metacalorias");
+                    progresocalorias = documentSnapshot.getLong("progresocalorias");
 
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
                             configurarGraficoAnillo();
                             configurarGraficoAnilloKilometros();
+                            configurarGraficoAnillocalorias();
                         }
                     });
                 } else {
@@ -232,6 +236,37 @@ public class HomeActivity extends AppCompatActivity {
             GraficoAnilloKilometros.invalidate();
             txtvKilometros=findViewById(R.id.txtvKilometros);
             txtvKilometros.setText(progresoKilometros+" de "+metaKilometros);
+        } else {
+            Log.d("TAG", "Error: metaKilometros es igual a cero");
+        }
+    }
+
+    private void configurarGraficoAnillocalorias() {
+        if (metacalorias != 0) {
+            float porcentajeProgresoKilometros = (float) (progresocalorias / metacalorias) * 100f;
+            float porcentajeRestanteKilometros = 100f - porcentajeProgresoKilometros;
+
+            List<PieEntry> datosKilometros = new ArrayList<>();
+            datosKilometros.add(new PieEntry(porcentajeProgresoKilometros, ""));
+            datosKilometros.add(new PieEntry(porcentajeRestanteKilometros, ""));
+
+            List<Integer> coloreskilometros = new ArrayList<>();
+            coloreskilometros.add(getResources().getColor(R.color.bondy));
+            coloreskilometros.add(getResources().getColor(android.R.color.transparent));
+
+            PieDataSet dataSet = new PieDataSet(datosKilometros, "");
+            dataSet.setColors(coloreskilometros);
+            dataSet.setDrawValues(false);
+
+            Legend leyenda = GraficoAnillocalorias.getLegend();
+            leyenda.setEnabled(false);
+
+            PieData data = new PieData(dataSet);
+            GraficoAnillocalorias.animateY(2000);
+            GraficoAnillocalorias.setData(data);
+            GraficoAnillocalorias.invalidate();
+            txtvcalorias=findViewById(R.id.txtvcalorias);
+            txtvcalorias.setText(progresocalorias+" de "+metacalorias);
         } else {
             Log.d("TAG", "Error: metaKilometros es igual a cero");
         }

@@ -28,7 +28,7 @@ public class FormularioMetas extends AppCompatActivity {
         btnEnviar = findViewById(R.id.btnEnviar);
         btnCancelar = findViewById(R.id.btnCancelar);
 
-        String[] items = new String[]{"Meta de pasos", "Meta de kilometros"};
+        String[] items = new String[]{"Meta de pasos", "Meta de kilometros", "Meta de calorias"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
         SpOpcionescombo.setAdapter(adapter);
 
@@ -65,10 +65,13 @@ public class FormularioMetas extends AppCompatActivity {
         } else if (seleccion.equals("Meta de pasos")) {
             actualizarPasos(docRef, Double.parseDouble(distancia));
         }
+        else if (seleccion.equals("Meta de calorias")) {
+            actualizarcalorias(docRef, Double.parseDouble(distancia));
+        }
     }
 
     private void actualizarKilometros(DocumentReference docRef, double distancia) {
-        docRef.update("metakilometros", distancia)
+        docRef.update("progresokilometros", distancia)
                 .addOnSuccessListener(aVoid -> {
                     Toast.makeText(FormularioMetas.this, "Datos de kilómetros actualizados con éxito", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(FormularioMetas.this, HomeActivity.class);
@@ -82,7 +85,21 @@ public class FormularioMetas extends AppCompatActivity {
     private void actualizarPasos(DocumentReference docRef, double pasos) {
         int pasosRedondeados = (int) Math.round(pasos);
 
-        docRef.update("metapasos", pasosRedondeados)
+        docRef.update("progresopasos", pasosRedondeados)
+                .addOnSuccessListener(aVoid -> {
+                    Toast.makeText(FormularioMetas.this, "Datos de pasos actualizados con éxito", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(FormularioMetas.this, HomeActivity.class);
+                    startActivity(intent);
+                })
+                .addOnFailureListener(e -> {
+                    Toast.makeText(FormularioMetas.this, "Error al actualizar los datos de pasos", Toast.LENGTH_SHORT).show();
+                });
+    }
+
+    private void actualizarcalorias(DocumentReference docRef, double calorias) {
+        int caloriasredondeado = (int) Math.round(calorias);
+
+        docRef.update("progresocalorias", caloriasredondeado)
                 .addOnSuccessListener(aVoid -> {
                     Toast.makeText(FormularioMetas.this, "Datos de pasos actualizados con éxito", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(FormularioMetas.this, HomeActivity.class);

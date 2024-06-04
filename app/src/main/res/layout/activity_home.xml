@@ -207,7 +207,7 @@
       </androidx.cardview.widget.CardView>
 
       <androidx.cardview.widget.CardView
-          android:id="@+id/cardview3"
+          android:id="@+id/cardview9"
           android:layout_width="410dp"
           android:layout_height="232dp"
           android:layout_marginStart="20dp"
@@ -218,6 +218,60 @@
           app:layout_constraintEnd_toEndOf="parent"
           app:layout_constraintStart_toStartOf="parent"
           app:layout_constraintTop_toBottomOf="@+id/cardView2">
+
+        <com.github.mikephil.charting.charts.PieChart
+            android:id="@+id/GraficoAnillocalorias"
+            android:layout_width="200dp"
+            android:layout_height="138dp"
+            android:layout_marginLeft="190dp"
+            android:layout_marginTop="70dp" />
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="80sp"
+            android:layout_marginTop="10dp"
+            android:text="Progreso de tus  Calorias"
+            android:textColor="@color/bondy"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20sp"
+            android:layout_marginTop="80sp"
+            android:text="Tu meta de hoy"
+            android:textColor="@color/azulOscuro"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtvcalorias"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20sp"
+            android:layout_marginTop="110sp"
+            android:text="1.2 calorias de 5"
+            android:textColor="@color/bondy"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+      </androidx.cardview.widget.CardView>
+
+
+      <androidx.cardview.widget.CardView
+          android:id="@+id/cardview3"
+          android:layout_width="410dp"
+          android:layout_height="232dp"
+          android:layout_marginStart="20dp"
+          android:layout_marginTop="20dp"
+          android:layout_marginEnd="20dp"
+          app:cardCornerRadius="25dp"
+          app:cardBackgroundColor="@color/concreto"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/cardview9">
 
         <com.github.mikephil.charting.charts.PieChart
             android:id="@+id/GraficoAnilloKilometros"
