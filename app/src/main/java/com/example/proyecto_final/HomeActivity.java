@@ -1,12 +1,17 @@
 package com.example.proyecto_final;
 
+import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,6 +24,7 @@ import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -31,16 +37,39 @@ import java.util.List;
 public class HomeActivity extends AppCompatActivity {
     PieChart GraficoAnillo, GraficoAnilloKilometros;
     public int metaKilometros = 0;
+    private Button btnLogout;
+    private FirebaseAuth mAuth;
     public double progresoKilometros = 0;
     public  int metaPasos=0, progresoPasos=0;
-    public TextView txtvPasos, txtvKilometros;
+    public TextView txtvPasos, txtvKilometros, txtEmail;
     public ImageView btnservicioWeb, btnSleep, btnChat, btnCalendar;
-    FloatingActionButton BtnAgregarRecordatorio,btnObjetivo, BtnAgregarEntrenamiento, btnAgregarObjetivos;
+    FloatingActionButton BtnAgregarRecordatorio,btnObjetivo, BtnAgregarEntrenamiento, btnAgregarObjetivos, btnInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        txtEmail = findViewById(R.id.txtEmail);
+
+        // Recupera el correo electrónico de las preferencias compartidas
+        SharedPreferences sharedPref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        String email = sharedPref.getString("email", "");
+
+        // Muestra el correo electrónico en el TextView
+        txtEmail.setText(email);
+        btnLogout = findViewById(R.id.btnLogout);
+        mAuth = FirebaseAuth.getInstance();
+
+        btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mAuth.signOut();
+                Intent intent = new Intent(HomeActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish(); // Cierra la actividad actual para que el usuario no pueda volver a ella presionando el botón de retroceso
+                Toast.makeText(HomeActivity.this, "Sesion Cerrada", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         // Configurar BottomNavigationView
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
@@ -53,6 +82,9 @@ public class HomeActivity extends AppCompatActivity {
                             return true;
                         } else if (item.getItemId() == R.id.calendario) {
                             startActivity(new Intent(HomeActivity.this, CalendarioAnualActivities.class));
+                            return true;
+                        }else if (item.getItemId() == R.id.perfil) {
+                            startActivity(new Intent(HomeActivity.this, PerfilActivity.class));
                             return true;
                         }
                         return false;
@@ -79,6 +111,7 @@ public class HomeActivity extends AppCompatActivity {
         btnObjetivo=findViewById(R.id.btnObjetivo);
         BtnAgregarEntrenamiento = findViewById(R.id.BtnAgregarEntrenamiento);
         btnAgregarObjetivos = findViewById(R.id.btnAgregarObjetivos);
+        btnInfo = findViewById(R.id.btnInfo);
         BtnAgregarRecordatorio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -235,5 +268,33 @@ public class HomeActivity extends AppCompatActivity {
         } else {
             Log.d("TAG", "Error: metaKilometros es igual a cero");
         }
+        btnInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showInfoDialog();
+            }
+        });
+    }
+
+    private void showInfoDialog() {
+        // Crea un diálogo
+        Dialog dialog = new Dialog(this);
+
+        // Establece el layout del diálogo
+        dialog.setContentView(R.layout.dialog_info);
+
+        // Encuentra el botón de cierre en el layout del diálogo
+        Button btnClose = dialog.findViewById(R.id.btnClose);
+
+        // Cierra el diálogo cuando se hace clic en el botón de cierre
+        btnClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        // Muestra el diálogo
+        dialog.show();
     }
 }

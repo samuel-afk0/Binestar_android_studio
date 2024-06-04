@@ -266,29 +266,4 @@ public class AddRecordatorio extends AppCompatActivity {
         }
     }
 
-
-   /* private void calendarClicked() {
-        databaseReference.child(stringDateSelected).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.getValue() != null) {
-                    String value = snapshot.getValue().toString();
-                   // txtViewMensaje.setText(snapshot.getValue().toString());
-                    edtMensaje.setText(value);
-                    dataList.add(value);
-
-
-                } else {
-                    edtMensaje.setText("no hay recordatorios");
-                }
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-            }
-        });
-    }*/
-
-
-
-
 }

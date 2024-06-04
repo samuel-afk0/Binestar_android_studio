@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/giphy"
+        android:alpha="0.2"
+        android:layout_centerInParent="true" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_centerInParent="true">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/baseline_phone_android_24"
+        android:shadowColor="#9C27B0"
+        android:shadowDx="4"
+        android:shadowDy="4"
+        android:shadowRadius="10"
+        android:text="DESARROLO DE APLICACIONES MOBILES BASICAS"
+        android:textColor="#000000"
+        android:textSize="15sp" />
+    <TextView
+        android:id="@+id/textViewTema"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PROYECTO FINAL"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:layout_marginTop="10dp"/>
+    <TextView
+        android:id="@+id/textViewTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="APP SALUD Y BIENESTAR"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:layout_marginTop="10dp"
+        android:shadowColor="#FF5722"
+        android:shadowDx="4"
+        android:shadowDy="4"
+        android:shadowRadius="10"
+        android:textColor="#000000"/>
+    <TextView
+        android:id="@+id/textViewInstructor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ING: GILBERT GARCIA"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:layout_marginTop="10dp"/>
+    <TextView
+        android:id="@+id/textViewGrupo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DS31"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:layout_marginTop="10dp"/>
+    <TextView
+        android:id="@+id/textViewIntegrantes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="INTEGRANTES"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:layout_marginTop="10dp"
+        android:shadowColor="#03A9F4"
+        android:shadowDx="4"
+        android:shadowDy="4"
+        android:shadowRadius="10"
+        android:textColor="#000000"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Samuel Isai Alvarado Caravantes"
+        android:textAlignment="center"
+        android:drawableStart="@drawable/perfil"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edward Jose Morales Ramirez"
+        android:textAlignment="center"
+        android:drawableStart="@drawable/perfil"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Balmore Alexander Rodezno Vanegas"
+        android:textAlignment="center"
+        android:drawableStart="@drawable/perfil"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"/>
+
+    <Button
+        android:id="@+id/btnClose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cerrar"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"/>
+    </LinearLayout>
+</RelativeLayout>

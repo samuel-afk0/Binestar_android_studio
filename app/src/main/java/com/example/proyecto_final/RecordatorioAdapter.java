@@ -232,11 +232,6 @@ public class RecordatorioAdapter extends RecyclerView.Adapter<RecordatorioAdapte
             });
 
 
-
-
-
-
-
         }
     }
 }
