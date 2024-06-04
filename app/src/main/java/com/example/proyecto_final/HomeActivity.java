@@ -332,5 +332,12 @@ public class HomeActivity extends AppCompatActivity {
         } else {
             Log.d("TAG", "Error: metaKilometros es igual a cero");
         }
+        //CARGAR IMAGENES GIF
+        ImageView btnSleep = (ImageView) findViewById(R.id.btnSleep);
+        Glide.with(this).load(R.drawable.r13).into(btnSleep);
+        ImageView btnChat = (ImageView) findViewById(R.id.btnChat);
+        Glide.with(this).load(R.drawable.chatapp).into(btnChat);
+        ImageView btnCalendar = (ImageView) findViewById(R.id.btnCalendar);
+        Glide.with(this).load(R.drawable.calendargif).into(btnCalendar);
     }
 }

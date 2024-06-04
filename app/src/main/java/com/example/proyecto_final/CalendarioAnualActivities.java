@@ -1,6 +1,9 @@
 package com.example.proyecto_final;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +23,7 @@ public class CalendarioAnualActivities extends AppCompatActivity {
     private PieChart graficoAnillo1;
     private PieChart graficoAnillo2;
     private PieChart graficoAnillo3;
+    private Button btnBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +35,7 @@ public class CalendarioAnualActivities extends AppCompatActivity {
         graficoAnillo1 = findViewById(R.id.GraficoAnillo1);
         graficoAnillo2 = findViewById(R.id.GraficoAnillo2);
         graficoAnillo3 = findViewById(R.id.GraficoAnillo3);
+        btnBack = findViewById(R.id.btnBack);
 
         // Configurar el listener para el evento de selección de fecha
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
@@ -91,5 +96,13 @@ public class CalendarioAnualActivities extends AppCompatActivity {
         graficoAnillo1.invalidate();
         graficoAnillo2.invalidate();
         graficoAnillo3.invalidate();
+        //REGRESAR A PAGINA HOME
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(CalendarioAnualActivities.this, HomeActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

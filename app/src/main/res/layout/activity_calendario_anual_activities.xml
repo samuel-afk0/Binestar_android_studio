@@ -3,12 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".CalendarioAnualActivities">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="20dp"
+        android:layout_margin="16dp"
         android:foregroundGravity="center">
 
         <LinearLayout
@@ -99,9 +100,22 @@
             <CalendarView
                 android:id="@+id/calendarView"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_height="310dp"
+                android:layout_marginTop="5dp"
                 android:firstDayOfWeek="2" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="REGRESAR"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/calendarView"
+                app:layout_constraintVertical_bias="0.039" />
         </LinearLayout>
+
     </androidx.cardview.widget.CardView>
 </RelativeLayout>
