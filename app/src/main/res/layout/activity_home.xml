@@ -43,9 +43,19 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="22sp"
             android:layout_marginTop="20sp"
-            android:text="Hola, Juan"
+            android:text="Hola:"
             android:textColor="@color/azulClaro"
             android:textSize="30sp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/txtEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100sp"
+            android:layout_marginTop="30sp"
+            android:text="Usuario"
+            android:textColor="#E91E63"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
@@ -59,21 +69,21 @@
             android:textSize="20sp"
             android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/editTextText"
+        <Button
+            android:id="@+id/btnLogout"
             android:layout_width="363dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20sp"
             android:layout_marginTop="120sp"
-            android:background="@drawable/buscador"
-            android:backgroundTint="@color/azulClaro"
-            android:drawableStart="@drawable/lupa"
-            android:ems="10"
-            android:hint="Buscar"
-            android:inputType="text"
+            android:src="@drawable/button_selector"
+            android:backgroundTint="@color/primario"
+            android:fontFamily="sans-serif-smallcaps"
             android:padding="10sp"
             android:paddingEnd="5dp"
-            android:textColor="@color/azulOscuro" />
+            android:textSize="20dp"
+            android:text="Cerrar sesión"
+            android:textColor="#FFFFFF" />
+
 
       </androidx.cardview.widget.CardView>
 
@@ -562,13 +572,12 @@
         app:fab_label="Agregar objetivos" />
 
     <com.github.clans.fab.FloatingActionButton
-        android:id="@+id/button3"
+        android:id="@+id/btnInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ejercicioo"
-        android:visibility="invisible"
+        android:src="@drawable/baseline_info_outline_24"
         app:fab_colorNormal="#11366A"
-        app:fab_label="Agregar datos de pasos" />
+        app:fab_label="Informacion de Grupo" />
   </com.github.clans.fab.FloatingActionMenu>
 
   <com.google.android.material.bottomappbar.BottomAppBar

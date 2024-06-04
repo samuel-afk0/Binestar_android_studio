@@ -1,7 +1,10 @@
 package com.example.proyecto_final;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -65,14 +68,20 @@ public class MainActivity extends AppCompatActivity {
 
     private void updateUI(FirebaseUser user) {
         if (user != null) {
+            // Almacena el correo electrónico en las preferencias compartidas
+            SharedPreferences sharedPref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPref.edit();
+            editor.putString("email", user.getEmail());
+            editor.apply();
             // Navegar a HomeActivity
             Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+            //intent.putExtra("email", user.getEmail()); // Agrega el correo electrónico al Intent
             startActivity(intent);
             finish(); // Cierra la actividad actual para que el usuario no pueda volver a ella presionando el botón de retroceso
             Toast.makeText(MainActivity.this, "Inicio exitoso.", Toast.LENGTH_SHORT).show();
         } else {
             // Mostrar un mensaje de error
-            Toast.makeText(MainActivity.this, "LA autentificacion fallo, intentelo de nuevo.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this, "La autentificacion fallo, intentelo de nuevo.", Toast.LENGTH_SHORT).show();
         }
     }
 }

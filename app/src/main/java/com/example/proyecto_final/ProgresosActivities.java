@@ -72,6 +72,10 @@ public class ProgresosActivities extends AppCompatActivity {
                             startActivity(new Intent(ProgresosActivities.this, CalendarioAnualActivities.class));
                             return true;
                         }
+                        else if (item.getItemId() == R.id.perfil) {
+                            startActivity(new Intent(ProgresosActivities.this, PerfilActivity.class));
+                            return true;
+                        }
                         return false;
                     }
                 });

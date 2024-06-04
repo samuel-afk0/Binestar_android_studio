@@ -8,9 +8,9 @@
         android:icon="@drawable/grafica"
         android:title="Progresos" />
     <item
-        android:id="@+id/otros"
-        android:icon="@drawable/gym"
-        android:title="Otros" />
+        android:id="@+id/perfil"
+        android:icon="@drawable/perfil"
+        android:title="Perfil" />
     <item
         android:id="@+id/calendario"
         android:icon="@drawable/calenario"
